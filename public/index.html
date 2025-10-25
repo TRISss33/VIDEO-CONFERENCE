@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArzTri Video Conference</title>
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 class="display-5">Video ConfPerence</h1>
+        <p class="lead">ArzTri Video Conference</p>
+      </div>
+
+      <div class="room-controls">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <label for="username" class="form-label">Name</label>
+            <input id="username" type="text" class="form-control" placeholder="Enter your name">
+          </div>
+          <div class="col-md-3">
+            <label for="roomId" class="form-label">Room ID</label>
+            <input id="roomId" type="text" class="form-control" placeholder="Enter room ID">
+          </div>
+          <div class="col-md-6 d-flex align-items-end">
+            <button id="joinBtn" class="btn btn-primary">
+              <i class="bi bi-door-open"></i> Join Room
+            </button>
+            <button id="leaveBtn" class="btn btn-danger">
+              <i class="bi bi-door-closed"></i> Leave Room
+            </button>
+            <button id="shareScreenBtn" class="btn btn-warning">
+              <i class="bi bi-display"></i> Share Screen
+            </button>
+          </div>
+        </div>
+        <div id="notification" class="alert alert-info d-none mt-3"></div>
+      </div>
+
+      <div class="video-container">
+        <div class="d-flex justify-content-center position-relative">
+          <div id="localVideo-container">
+            <video autoplay playsinline muted></video>
+            <div class="text-center mt-2">You</div>
+            <div class="local-controls">
+              <button id="muteBtn" class="local-mute-btn" title="Toggle Mute">
+                <i class="bi bi-mic-mute-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <h5 class="mb-3">Participants</h5>
+        <div id="videos">
+          <div id="videoGrid" class="grid-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="js/webrtc.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
